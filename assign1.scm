@@ -1,6 +1,16 @@
 #lang racket
 
 ; Answer to (1)
+; Read the following web page about a function called Ackermann.
+; http://en.wikipedia.org/wiki/Ackermann_function
+; This function takes two parameters, m and n, and will calculate according to its definition.
+; Your implementation of the function should check whether the inputs are correct or not
+; (for instance, n is a negative number or m is floating-point number). You need to output
+; some error message if any input is not correct. Otherwise output ackermann(m, n). (As
+; indicated in the above webpage, do not try to test your function with “big” m or n.)
+
+
+
 (define (ackermann m n)
   (if (and (number? m) (number? n))
       (if (and (integer? m) (integer? n))
@@ -30,6 +40,12 @@
 ; which is then added to the total.
 
 ; Answer to (3)
+; Given such a complete binary tree represented
+; as a list, create a function, called preorder, to traverse the tree using the pre order. The
+; pre-order traversal of a binary tree is: recursively, starting from the root, access it, preorder
+; traverse the left child, and then pre-order traverse the right child. For the example,
+; the result is a list (a b d e c f g).
+
 (define (preorder tree)
   (if (pair? tree)
       (cons
@@ -46,7 +62,7 @@
   ) 
 )
 
-(preorder '(a (b (d) (e))(c (f) (g)))) ; '(a b d e c f g)
+(preorder '(a (b (d) (e))(c (f) (g))))                                                  ; '(a b d e c f g)
 (preorder (list "a" (list "b" (list "d") (list "e")) (list "c" (list "f") (list "g")))) ; '("a" "b" "d" "e" "c" "f" "g")
-(preorder (list "b" (list "d") (list "e"))) ; '("b" "d" "e")
-(preorder (list "b")) ; '("b")
+(preorder (list "b" (list "d") (list "e")))                                             ; '("b" "d" "e")
+(preorder (list "b"))                                                                   ; '("b")
